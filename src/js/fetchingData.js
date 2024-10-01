@@ -2,8 +2,12 @@ const popularCryptoIds = [
   'bitcoin', 'ethereum', 'binancecoin', 'cardano', 'ripple', 
   'solana', 'polkadot', 'dogecoin', 'matic-network', 'litecoin', 
   'bitcoin-cash', 'avalanche-2', 'uniswap', 'chainlink', 'cosmos', 
-  'stellar', 'shiba-inu', 'tron', 'algorand', 'filecoin'
+  'stellar', 'shiba-inu', 'tron', 'algorand', 'filecoin', 
+  'vechain', 'tezos', 'theta-token', 'elrond', 'monero', 
+  'aave', 'ftx-token', 'eos', 'maker', 'zilliqa', 
+  'iota'
 ];
+
 export async function fetchCryptoInfo() {
   const ids = popularCryptoIds.join(',');
   let cryptoInfo = [];
@@ -30,5 +34,35 @@ export async function fetchCryptoInfo() {
     console.error('Error fetching data from coinGecko', error);
   }
   return cryptoInfo;
+}
+
+
+export async function getSortedCryptoInfo() {
+  const cryptoInfo = await fetchCryptoInfo();
+
+  const sortedByPrice = [...cryptoInfo].sort((a,b) => {
+    if(a.currentPrice > b.currentPrice){
+      return -1;
+    }
+    if(a.currentPrice < b.currentPrice){
+      return 1;
+    }
+    return 0;
+  });  
+
+  const sortedByProfit = [...cryptoInfo].sort((a,b) => {
+    if(a.priceChangePercentage24h > b.priceChangePercentage24h){
+      return -1;
+    }
+    if(a.priceChangePercentage24h < b.priceChangePercentage24h){
+      return 1;
+    }
+    return  0;
+  });
+
+  return{
+    sortedByPrice,
+    sortedByProfit
+  };
 }
 
