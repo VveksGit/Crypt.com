@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="css/output.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  </head>
+
+    <!-- npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch -->
+
+  <body class="bg-[#031213]">
+
+    <div class="flex">
+
+      <aside class="w-16 bg-red-700 h-screen">
+
+        <nav class="flex flex-col justify-between h-full">
+
+          <div class="h-12 flex items-center justify-center">
+            <h1 class="text-2xl font-bold text-[#c09031]">Crypt</h1>
+          </div>
+
+          <div class="flex-1 flex flex-col justify-evenly items-center text-white text-xl">
+            <i class="fa-solid fa-house js-house"></i>
+            <i class="fa-solid fa-wallet"></i>
+            <i class="fa-solid fa-vault"></i>
+            <i class="fa-solid fa-gear"></i>
+            <i class="fa-solid fa-user"></i>
+          </div>
+
+        </nav>
+
+      </aside>
+  
+      <div class="bg-white h-screen w-full flex flex-col">
+
+        <div class="h-10 bg-black text-white flex justify-between items-center px-8">
+          <div class="Date-Time">Date</div>
+          <button><i class="fa-solid fa-bell"></i></button>
+        </div>
+
+        <div class="flex-1 bg-blue-300 flex">
+          <div class="flex-1">popular</div>
+          <div class="flex-1 bg-blue-950">top profit</div>
+        </div>
+
+        <div class="flex-1 bg-blue-700">other</div>
+
+      </div>
+
+    </div>
+  </body>
+</html>
