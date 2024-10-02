@@ -14,17 +14,17 @@
 
   <body class="bg-[#031213]">
 
-    <div class="flex">
+    <div class="md:flex">
 
-      <aside class="w-16  h-screen">
+      <aside class="md:w-16  md:h-screen">
 
-        <nav class="flex flex-col justify-between h-full fixed">
+        <nav class="hidden md:flex md:flex-col md:justify-between md:h-full md:fixed">
 
-          <div class="h-12 flex items-center justify-center mt-3">
-            <img class="w-16 rounded-full" src="images/openart-image_agjsSoPq_1727786345025_raw.png" alt="">
+          <div class="md:h-12 md:flex md:items-center md:justify-center md:mt-3">
+            <img class="md:w-16 md:rounded-full" src="images/openart-image_agjsSoPq_1727786345025_raw.png" alt="">
           </div>
 
-          <div class="flex-1 flex flex-col justify-evenly items-center text-white text-xl">
+          <div class="md:flex-1 md:flex md:flex-col md:justify-evenly md:items-center md:text-white md:text-xl">
             <i class="fa-solid fa-house js-house"></i>
             <i class="fa-solid fa-wallet"></i>
             <i class="fa-solid fa-vault"></i>
@@ -40,31 +40,31 @@
 
         <div class="h-10 text-white text-xl py-8 font-blod font-mono flex justify-between items-center px-8 
         border-b-[1px] border-b-gray-700 shadow-white drop-shadow-lg">
-          <div class="js-date-time">Date</div>
-          <h1 class="text-4xl font-mono font-bold text-[#c09031] -ml-52">CRYPT</h1>
+          <div class="js-date-time hidden md:block">Date</div>
+          <h1 class="text-4xl font-mono font-bold text-[#c09031] md:-ml-52">CRYPT</h1>
           <button><i class="fa-solid fa-bell"></i></button>
         </div>
 
-        <div class="flex-1 flex border-b-[1px] border-b-gray-700">
+        <div class="flex-1 flex md:flex-row border-b-[1px] border-b-gray-700">
 
           <div class="flex-1 pb-5">
-            <p class="h-5 mb-5 text-white text-2xl font-bold ml-8 mt-5">Most Popular</p>
-            <div class="js-popular-coins flex flex-wrap justify-between px-8"></div>
+            <p class="h-5 mb-5 text-white text-sm md:text-2xl font-bold ml-8 mt-5">Most Popular</p>
+            <div class="js-popular-coins flex flex-wrap md:justify-between px-8"></div>
           </div>
 
 
-          <div class="flex-1 pb-5 border-l-[1px] border-l-gray-600">
+          <div class="flex-1 pb-5 md:border-l-[1px] md:border-l-gray-600">
             <div>
-              <p class="h-5 mb-5 text-white text-2xl font-bold ml-8 mt-5">Most Profitable In Last 24h</p>
+              <p class="h-5 mb-5 text-white text-sm md:text-2xl font-bold ml-8 mt-5">Most Profitable In Last 24h</p>
             </div>
-            <div class="js-profitable-coins flex flex-wrap justify-between px-8"></div>
+            <div class="js-profitable-coins flex flex-wrap md:justify-between px-8"></div>
           </div>
 
         </div>
 
         <div class="flex-1">
           <div>
-            <p class="h-5 mb-5 text-white text-2xl font-bold ml-8 mt-5">More</p>
+            <p class="h-5 mb-5 text-white text-xl md:text-2xl font-bold ml-8 mt-5">More</p>
           </div>
           <div class="js-more-coins flex flex-wrap justify-between px-8"></div>
         </div>

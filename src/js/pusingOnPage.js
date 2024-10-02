@@ -14,78 +14,52 @@ async function mpaOnPage() {
   
   for (let index = 0; index < 6; index++) {
     const element = sortedByPrice[index];
-    popularCoinHTML += `
-      <div class="w-40 h-40 my-2 bg-[white] flex flex-col justify-center items-center font-mono rounded-lg bg-opacity-50">
-
-        <div class="flex  flex-col justify-center items-center">
-          <img class="w-10" src="${element.logo}" alt="logo">
-          <p class=" text-xl">${element.name}</p>
-        </div>
-    
-        <div class="font-semibold text-[16px] flex flex-col justify-center items-center">
-          <p>$${element.currentPrice}</p>
-          <span class="${element.priceChangePercentage24h > 0 ? 'text-green-500' : 'text-red-500'}">
-            <p class="">${element.priceChangePercentage24h}%</p>
-          </span>
-          <button class="bg-black bg-opacity-50 text-white rounded-md px-8 py-[2px] mt-2 hover:bg-opacity-80">Buy</button>
-        </div>
-      </div>
-    `;
+    popularCoinHTML += coinsHTML(element, 0);
   }
-
   document.querySelector('.js-popular-coins').innerHTML = popularCoinHTML;
+
 
   let profitableCoinHTML = '';
 
   for (let index = 0; index < 6; index++) {
     const element = sortedByProfit[index];
-    profitableCoinHTML += `
-      <div class="w-40 h-40 my-2 bg-[white] flex flex-col justify-center items-center font-mono rounded-lg bg-opacity-50">
-
-        <div class="flex  flex-col justify-center items-center">
-          <img class="w-10" src="${element.logo}" alt="logo">
-          <p class=" text-xl">${element.name}</p>
-        </div>
-    
-        <div class="font-semibold text-[16px] flex flex-col justify-center items-center">
-          <p>$${element.currentPrice}</p>
-          <span class="${element.priceChangePercentage24h > 0 ? 'text-green-500' : 'text-red-500'}">
-            <p class="">${element.priceChangePercentage24h}%</p>
-          </span>
-          <button class="bg-black bg-opacity-50 text-white rounded-md px-8 py-[2px] mt-2 hover:bg-opacity-80">Buy</button>
-        </div>
-      </div>
-    `;
+    profitableCoinHTML += coinsHTML(element, 0);
   }
   document.querySelector('.js-profitable-coins').innerHTML = profitableCoinHTML;
+
 
   let allCoinsHTML = '';
 
   const allCoins = await fetchCryptoInfo();
-
   allCoins.forEach((element) => {
-    allCoinsHTML += `
-    <div class="w-40 mx-2 h-40 my-2 bg-[white] flex flex-col justify-center items-center font-mono rounded-lg bg-opacity-50">
-
-        <div class="flex  flex-col justify-center items-center">
-          <img class="w-10" src="${element.logo}" alt="logo">
-          <p class=" text-xl">${element.name}</p>
-        </div>
-    
-        <div class="font-semibold text-[16px] flex flex-col justify-center items-center">
-          <p>$${element.currentPrice}</p>
-          <span class="${element.priceChangePercentage24h > 0 ? 'text-green-500' : 'text-red-500'}">
-            <p class="">${element.priceChangePercentage24h}%</p>
-          </span>
-          <button class="bg-black bg-opacity-50 text-white rounded-md px-8 py-[2px] mt-2 hover:bg-opacity-80">Buy</button>
-        </div>
-      </div>
-    `;
+    allCoinsHTML += coinsHTML(element, 8);
   });
 
   document.querySelector('.js-more-coins').innerHTML = allCoinsHTML;
 }
 mpaOnPage();
+
+function coinsHTML(element, marginX) {
+  return `
+    <div class="md:w-40 w-20 md:h-40 my-2 mx-2 md:mx-0 bg-[white] flex flex-col md:justify-center md:items-center font-mono rounded-lg bg-opacity-50 p-2"
+    style="margin-left: ${marginX}px; margin-right: ${marginX}px;">
+
+      <div class="flex  flex-col justify-center items-center">
+        <img class=" w-5 md:w-10" src="${element.logo}" alt="logo">
+        <p class=" text-sm md:text-xl ml-1 flex flex-wrap">${element.name.length > 7 ? element.symbol : element.name}</p>
+      </div>
+
+      <div class="font-semibold text-[10px] md:text-[16px] flex flex-col justify-center items-center">
+        <p>$${element.currentPrice}</p>
+        <span class="${element.priceChangePercentage24h > 0 ? 'text-green-500' : 'text-red-500'}">
+          <p class="">${element.priceChangePercentage24h}%</p>
+        </span>
+        
+      </div>
+      <button class="bg-black bg-opacity-50 text-white rounded-md px-1 md:px-8 py-[1px] md:py-[2px] mt-2 mb-1 hover:bg-opacity-80 text-sm">Buy</button>
+    </div>
+  `;
+}
 
 // async function cryptoCoins() {
 //   const coinInfo = await fetchCryptoInfo();
