@@ -16,20 +16,22 @@
 
     <div class="md:flex">
 
-      <aside class="md:w-16  md:h-screen">
+      <aside class="md:w-16  md:h-screen z-1">
+       
+        <nav class="hidden md:flex flex-col justify-between h-full fixed" id="navMenu">
 
-        <nav class="hidden md:flex md:flex-col md:justify-between md:h-full md:fixed">
-
-          <div class="md:h-12 md:flex md:items-center md:justify-center md:mt-3">
-            <img class="md:w-16 md:rounded-full" src="images/openart-image_agjsSoPq_1727786345025_raw.png" alt="">
-          </div>
-
-          <div class="md:flex-1 md:flex md:flex-col md:justify-evenly md:items-center md:text-white md:text-xl">
-            <i class="fa-solid fa-house js-house"></i>
-            <i class="fa-solid fa-wallet"></i>
-            <i class="fa-solid fa-vault"></i>
-            <i class="fa-solid fa-gear"></i>
-            <i class="fa-solid fa-user"></i>
+          <div class="flex flex-col justify-between h-full bg-transparent backdrop-blur-md">
+            <div class="h-12 flex items-center justify-center mt-3">
+              <img class="w-14 md:rounded-full" src="images/openart-image_agjsSoPq_1727786345025_raw.png" alt="">
+            </div>
+  
+            <div class="flex-1 flex flex-col justify-evenly items-center text-white text-md">
+              <i class="fa-solid fa-house js-house"></i>
+              <i class="fa-solid fa-wallet"></i>
+              <i class="fa-solid fa-vault"></i>
+              <i class="fa-solid fa-gear"></i>
+              <i class="fa-solid fa-user"></i>
+            </div>
           </div>
 
         </nav>
@@ -38,14 +40,18 @@
   
       <div class=" bg-[#031213] h-screen w-full flex flex-col">
 
-        <div class="h-10 text-white text-xl py-8 font-blod font-mono flex justify-between items-center px-8 
-        border-b-[1px] border-b-gray-700 shadow-white drop-shadow-lg">
+        <div class="h-10 w-full text-white text-xl py-8 px-8 font-blod font-mono flex justify-between items-center 
+        border-b-[1px] border-b-gray-700 shadow-white drop-shadow-lg fixed bg-[#031213] top-0">
+          <div class="md:hidden p-4">
+            <i class="fa-solid fa-bars text-2xl text-white cursor-pointer" id="hamburger"></i>
+          </div>
+
           <div class="js-date-time hidden md:block">Date</div>
           <h1 class="text-4xl font-mono font-bold text-[#c09031] md:-ml-52">CRYPT</h1>
-          <button><i class="fa-solid fa-bell"></i></button>
+          <button><i class="fa-solid fa-bell md:mr-14"></i></button>
         </div>
 
-        <div class="flex-1 flex md:flex-row border-b-[1px] border-b-gray-700">
+        <div class="flex-1 flex md:flex-row border-b-[1px] border-b-gray-700 mt-12">
 
           <div class="flex-1 pb-5">
             <p class="h-5 mb-5 text-white text-sm md:text-2xl font-bold ml-8 mt-5">Most Popular</p>

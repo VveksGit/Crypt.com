@@ -7,14 +7,28 @@ function fetchDateTime() {
 }
 document.querySelector('.js-date-time').innerHTML = fetchDateTime();
 
+function openCloseNav() {
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('navMenu');
+  
+  hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden'); 
+  });
+}
+openCloseNav();
+
+
 async function mpaOnPage() {
 
   const {sortedByPrice, sortedByProfit} = await getSortedCryptoInfo();
   let popularCoinHTML = '';
+
+  console.log(sortedByProfit);
+  
   
   for (let index = 0; index < 6; index++) {
     const element = sortedByPrice[index];
-    popularCoinHTML += coinsHTML(element, 0);
+    popularCoinHTML += coinsHTML(element);
   }
   document.querySelector('.js-popular-coins').innerHTML = popularCoinHTML;
 
@@ -23,7 +37,7 @@ async function mpaOnPage() {
 
   for (let index = 0; index < 6; index++) {
     const element = sortedByProfit[index];
-    profitableCoinHTML += coinsHTML(element, 0);
+    profitableCoinHTML += coinsHTML(element);
   }
   document.querySelector('.js-profitable-coins').innerHTML = profitableCoinHTML;
 
@@ -32,17 +46,16 @@ async function mpaOnPage() {
 
   const allCoins = await fetchCryptoInfo();
   allCoins.forEach((element) => {
-    allCoinsHTML += coinsHTML(element, 8);
+    allCoinsHTML += coinsHTML(element);
   });
 
   document.querySelector('.js-more-coins').innerHTML = allCoinsHTML;
 }
 mpaOnPage();
 
-function coinsHTML(element, marginX) {
+function coinsHTML(element) {
   return `
-    <div class="md:w-40 w-20 md:h-40 my-2 mx-2 md:mx-0 bg-[white] flex flex-col md:justify-center md:items-center font-mono rounded-lg bg-opacity-50 p-2"
-    style="margin-left: ${marginX}px; margin-right: ${marginX}px;">
+    <div class="md:w-40 w-20 md:h-40 my-2 mx-2 md:mx-0 bg-[white] flex flex-col md:justify-center md:items-center font-mono rounded-lg bg-opacity-50 p-2">
 
       <div class="flex  flex-col justify-center items-center">
         <img class=" w-5 md:w-10" src="${element.logo}" alt="logo">
