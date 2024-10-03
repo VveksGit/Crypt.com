@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase</title>
+  <link rel="stylesheet" href="css/output.css">
+</head>
+    <!-- npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch -->
+
+<body class="bg-[#031213] flex justify-center items-center h-screen">
+  <div class="w-96 h-[400px] my-auto mx-auto flex items-center justify-center px-8 py-8 rounded-2xl  border-[1px] border-gray-700 ">
+    <div class=" w-full h-full text-white flex flex-col items-center" >
+
+      <header class="flex w-full h-10">
+        <div class="js-buy-asset flex-1 flex justify-center text-2xl font-sans font-semibold text-[#c09031]"></div>
+        <div class="js-trade-asset flex-1 flex justify-center text-2xl font-sans font-semibold text-[#c09031]"></div>
+      </header>
+
+      <main class=" flex flex-col flex-1 w-full">
+
+        <div class="flex-1 w-full flex border-[1px] border-gray-700 rounded-2xl my-5">
+          <div class="flex-1 pl-4 pt-4 ">
+            <p class="font-semibold text-gray-400 text-opacity-60">You Spend</p>
+            <input class="js-money-usd h-11 w-44 bg-transparent text-2xl font-bold font-mon text-[#c09031] border-none placeholder:opacity-25 focus:outline-none focus:caret-[#c09031]" type="text" placeholder="10 - 50,000">
+          </div>
+          <div class="flex-1 ">
+            <div class="w-auto h-auto flex mt-4 mr-4 px-4 py-2 items-center  bg-gray-500 bg-opacity-35 rounded-xl p">
+              <img class="w-6 h-6" src="https://public.bnbstatic.com/image/currencies/USD.png" alt="">
+              <p class="text-xl font-bold ml-2">USD</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-1 w-full flex border-[1px] border-gray-700 rounded-2xl mb-5">
+          <div class="flex-1 pl-4 pt-4 ">
+            <p class="font-semibold text-gray-400 text-opacity-60">You Buy</p>
+            <input class=" js-crypto-volume h-11 w-44 bg-transparent text-2xl font-bold font-mon text-[#c09031] border-none placeholder:opacity-25 focus:outline-none focus:caret-[#c09031]" type="text" placeholder="10 - 50,000">
+          </div>
+          <div class="flex-1 ">
+            <div class="w-auto h-auto flex mt-4 mr-4 px-4 py-2 items-center  bg-gray-500 bg-opacity-35 rounded-xl p">
+              <img class="js-asset-logo w-6 h-6" src="" alt="">
+              <p class="js-asset-name text-xl font-bold ml-2">BTC</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class=" h-14 w-full flex items-center justify-center">
+        <button class="bg-[#c09031] w-full h-10 rounded-2xl text-xl font-bold font-sans hover:bg-opacity-55 transition-all duration-200">Buy BTC</button>
+      </div>
+
+    </div> 
+  </div>
+  <script src="js/pusingOnPage.js" type="module"></script>
+</body>
+</html>
