@@ -109,6 +109,11 @@ import { getSortedCryptoInfo, fetchCryptoInfo } from './fetchingData.js';
       assetnameEle.innerHTML = selectedAsset.symbol;
     }
 
+    const buyAssetButtonELe = document.querySelector('.js-buy-asset-button');
+    if(buyAssetButtonELe){
+      buyAssetButtonELe.innerHTML = `BUY ${selectedAsset.symbol}`;
+    }
+
     
 
     const cryptoVolumeEle = document.querySelector('.js-crypto-volume');
@@ -129,6 +134,26 @@ import { getSortedCryptoInfo, fetchCryptoInfo } from './fetchingData.js';
         USDele.value = (coinVolume && coinPrice >0) ? ( coinVolume * coinPrice).toFixed(6) : ''
       })
     }
+
+    if(tradeAssetEle){
+      tradeAssetEle.addEventListener('click', () => {
+        document.querySelector('.js-usd-image').src = selectedAsset.logo;
+        document.querySelector('.js-usd-name').innerHTML = selectedAsset.symbol;
+        assetnameEle.innerHTML = 'USD';
+        assetLogoEle.src = 'https://public.bnbstatic.com/image/currencies/USD.png';
+        buyAssetButtonELe.innerHTML = `Trade ${selectedAsset.symbol}`
+      })
+    }
+    if(buyAssetEle){
+      buyAssetEle.addEventListener('click', () => {
+        document.querySelector('.js-usd-image').src = 'https://public.bnbstatic.com/image/currencies/USD.png';
+        document.querySelector('.js-usd-name').innerHTML = 'USD';
+        assetLogoEle.innerHTML = selectedAsset.symbol;
+        assetLogoEle.src = selectedAsset.logo;
+        buyAssetButtonELe.innerHTML = `Buy ${selectedAsset.symbol}`
+      })
+    }
+    
 
   }
   mpaOnPage();
