@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="css/output.css">
+</head>
+    <!-- npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch -->
+<body class="text-white bg-black">
+  <div class="w-full h-screen bg-red-300 p-16">
+    <div class="w-full h-full bg-[#031213] rounded-3xl flex">
+      <div class="flex-1 flex flex-col border-r-[1px] border-r-gray-600">
+        <div class="flex-1 flex flex-col justify-center items-center py-4 border-b-[1px] border-b-gray-600">
+
+          <div class="w-72 h-40 bg-gradient-to-r from-[#1c1c1e] to-[#2d2d37] bg-opacity-55 rounded-3xl relative flex items-center justify-center ">
+            <div class=" relative text-4xl font-semibold font-serif z-10 opacity-70">
+                $ <span class="js-current-balance">100000</span> 
+            </div>
+          </div>
+          <div class="pt-3">
+            <button class="js-add-button bg-white px-8 py-2 text-xl font-bold text-black mx-1 rounded-xl bg-opacity-65">Add</button>
+            <button class="js-withdraw-button bg-white px-8 py-2 text-xl font-bold text-black m-1 rounded-xl bg-opacity-65">Withdraw</button>
+          </div>
+        </div>
+        <div class="flex-1">
+          <div class="text-2xl font-bold opacity-75 text-center my-3">Added Or Withdrawn</div>
+          <div class="js-adding-money flex-col px-8  overflow-y-auto max-h-40">
+            <!-- the div in which the transation of adding and Withdrawing Money will be inserted -->
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">Trantation</div>
+    </div>
+  </div>
+  <script src="js/wallet.js" type="module"></script>
+</body>
+</html>
