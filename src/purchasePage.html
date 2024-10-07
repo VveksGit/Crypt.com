@@ -9,10 +9,12 @@
     <!-- npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch -->
 
 <body class="bg-[#031213] flex justify-center items-center h-screen">
-  <div class="w-96 h-[400px] my-auto mx-auto flex items-center justify-center px-8 py-8 rounded-2xl  border-[1px] border-gray-700 ">
+  <div class="w-96 h-[440px] my-auto mx-auto flex items-center justify-center px-8 py-8 rounded-2xl  border-[1px] border-gray-700 ">
     <div class=" w-full h-full text-white flex flex-col items-center" >
 
-      <header class="flex w-full h-10">
+      <div class="js-current-purchase-balance h-16 text-xl font-bold font-mono text-green-500 text-wrap">Your current Balance : </div>
+
+      <header class="flex w-full h-10 justify-evenly">
         <div class="js-buy-asset flex-1 flex justify-center text-2xl font-sans font-semibold text-[#c09031] cursor-pointer"></div>
         <div class="js-trade-asset flex-1 flex justify-center text-2xl font-sans font-semibold text-[#c09031] cursor-pointer"></div>
       </header>

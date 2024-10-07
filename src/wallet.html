@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="css/output.css">
 </head>
     <!-- npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch -->
-<body class="text-white bg-black">
-  <div class="w-full h-screen bg-red-300 p-16">
+<body class="text-white">
+  <div class="w-full h-screen bg-gray-600 bg-opacity-70 p-16">
     <div class="w-full h-full bg-[#031213] rounded-3xl flex">
       <div class="flex-1 flex flex-col border-r-[1px] border-r-gray-600">
         <div class="flex-1 flex flex-col justify-center items-center py-4 border-b-[1px] border-b-gray-600">
@@ -31,7 +31,11 @@
           </div>
         </div>
       </div>
-      <div class="flex-1">Trantation</div>
+      <div class="flex-1 flex flex-col px-8 py-4">
+        <p class="h-10 text-2xl font-bold font-serif opacity-75 mb-8">Transaction History</p>
+        <div class="flex-1 js-bought-asset flex flex-col overflow-y-auto px-8">
+        </div>
+      </div>
     </div>
   </div>
   <script src="js/wallet.js" type="module"></script>

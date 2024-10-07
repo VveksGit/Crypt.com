@@ -6,7 +6,7 @@ import { walletPage } from './pageChange.js';
   walletPage();
 
   export function fetchDateTime() {
-    const today = dayjs().format('MMMM DD : hh:mm A');
+    const today = dayjs().format('MMM DD : hh:mm A');
     return today;
   }
   const dateTimeEle = document.querySelector('.js-date-time');

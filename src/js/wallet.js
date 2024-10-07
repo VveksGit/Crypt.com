@@ -95,9 +95,9 @@ function addMoneyInWallet() {
     addedAmountInfo.forEach((amount) => {
       additionAmountHTML += `
       <div class="flex justify-evenly h-10 bg-white mb-2 text-black rounded-xl items-center text-xl font-mono">
-        <div class="js-amount-money font-semibold">${amount.amount}</div>
-        <div class="js-money-time text-sm">${amount.time}</div>
-        <div class="js-amount-type font-bold text-green-600">${amount.type === 'Add' ? 'Added' : 'Withdrawn'}</div>
+        <div class="js-amount-money font-semibold flex-1 text-center">${amount.amount}$</div>
+        <div class="js-money-time text-sm flex-1 text-center">${amount.time}</div>
+        <div class="js-amount-type font-bold text-green-600 flex-1 text-center">${amount.type === 'Add' ? 'Added' : 'Withdrawn'}</div>
       </div>
       `;
 
@@ -115,6 +115,7 @@ function addMoneyInWallet() {
           console.error(`${amount.type} : 'There is no Transaction yet'`);
           currentBalanceEle.innerHTML = balanceBefore;
         }
+        localStorage.setItem('currentBalance', JSON.stringify(balanceAfter));
       }
     });
   }
@@ -123,6 +124,29 @@ function addMoneyInWallet() {
     addingMoneyOnPage.innerHTML = additionAmountHTML;
   }
 
-  
+
 }
 addMoneyInWallet();
+
+function displayBoughtAssets() {
+  const boughtAssets = JSON.parse(localStorage.getItem('boughtAssets')) || [];
+  let assetTransactionHTML = '';
+  boughtAssets.forEach((boughtAsset) => {
+    assetTransactionHTML += `
+      <div class="flex justify-evenly h-14 bg-white mb-2 text-black rounded-xl items-center text-xl font-mono">
+        <div class="js-amount-type font-bold flex-1 text-center">${boughtAsset.assetName}</div>
+        <div class="js-money-time flex-1 flex items-center justify-center">
+          <div class="text-sm mr-1">${boughtAsset.volumeOfAsset}</div>
+          <div><img class="w-6" src="${boughtAsset.assetLogo}"></div>
+         </div>
+        <div class="js-amount-money font-semibold flex-1 text-center text-red-600">${boughtAsset.amountToSpend}$</div>
+      </div>
+    `;
+    const assetTransaction = document.querySelector('.js-bought-asset')
+    if(assetTransaction){
+      assetTransaction.innerHTML = assetTransactionHTML;
+    }
+  })
+}
+
+displayBoughtAssets();

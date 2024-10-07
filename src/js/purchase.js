@@ -113,4 +113,37 @@ if(buyAssetEle){
     })
   })
 }
-    
+
+const currentBalance = JSON.parse(localStorage.getItem('currentBalance'));
+const purchaseBalanceEle = document.querySelector('.js-current-purchase-balance');
+
+if(purchaseBalanceEle){
+  purchaseBalanceEle.innerHTML = `Current balance : ${currentBalance} $`;
+}
+
+function assetYouBought(currentBalance) {
+
+  if(buyAssetButtonELe){
+    buyAssetButtonELe.addEventListener('click', () => {
+  
+      const boughtAssetInfo = {
+        amountToSpend: USDele.value,
+        volumeOfAsset: cryptoVolumeEle.value,
+        assetName: selectedAsset.symbol,
+        perAssetPrice: selectedAsset.currentPrice,
+        profitAssetMake: selectedAsset.priceChangePercentage24h,
+        assetLogo: selectedAsset.logo
+      }
+  
+      if(boughtAssetInfo.amountToSpend < currentBalance){
+        const existingAssets = JSON.parse(localStorage.getItem('boughtAssets')) || [];
+        existingAssets.push(boughtAssetInfo);
+        localStorage.setItem('boughtAssets', JSON.stringify(existingAssets));
+      }else{
+        console.error('You do not have enough balance!');
+      }
+  
+    });
+  }
+}
+assetYouBought(currentBalance);
