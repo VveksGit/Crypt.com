@@ -78,10 +78,13 @@ function getTheAmountTime(addMoneyEle, type) {
     window.location.href = 'wallet.html';
 
   } else {
-    alert('Enter a valid amount in numbers!');
+    alert('Enter a .js-current-balancevalid amount in numbers!');
   }
 
 }
+
+const currentBalanceEle = document.querySelector('');
+
 
 function addMoneyInWallet() {
 
@@ -101,7 +104,6 @@ function addMoneyInWallet() {
       </div>
       `;
 
-      const currentBalanceEle = document.querySelector('.js-current-balance');
       if(currentBalanceEle){
         const balanceBefore = parseFloat(currentBalanceEle.innerText);
         let balanceAfter = 0;
@@ -145,6 +147,11 @@ function displayBoughtAssets() {
     const assetTransaction = document.querySelector('.js-bought-asset')
     if(assetTransaction){
       assetTransaction.innerHTML = assetTransactionHTML;
+    }
+    if(currentBalanceEle){
+      const currentBalance = currentBalanceEle.innerText - boughtAsset.amountToSpend;
+      currentBalanceEle.innerHTML = currentBalance.toFixed(2);
+
     }
   })
 }
